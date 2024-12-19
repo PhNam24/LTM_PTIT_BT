@@ -8,20 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TCP_ByteStream {
-    private static int binarySearch(ArrayList<Integer> lis, int value) {
-        int low = 0, high = lis.size() - 1;
-
-        while (low <= high) {
-            int mid = (low + high) / 2;
-
-            if (lis.get(mid) < value) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        return low;
-    }
 
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket("203.162.10.109", 2206);
@@ -56,8 +42,8 @@ public class TCP_ByteStream {
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (list.get(j) < list.get(i) && dp[i] < dp[j] + 1) {
-                    dp[i] = dp[j] + 1; // Cập nhật độ dài LIS
-                    previous[i] = j;  // Lưu lại phần tử trước đó
+                    dp[i] = dp[j] + 1;
+                    previous[i] = j;
                 }
             }
 
